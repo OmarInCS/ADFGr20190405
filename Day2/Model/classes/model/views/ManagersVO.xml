@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewObject SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewObject
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="ManagersVO"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  SelectList="EmpImportDetailEO.EMPLOYEE_ID, 
+       EmpImportDetailEO.LAST_NAME, 
+       EmpImportDetailEO.SALARY"
+  FromList="EMPLOYEES EmpImportDetailEO"
+  Where="employee_id in (select distinct manager_id from employees)"
+  BindingStyle="OracleName"
+  CustomQuery="false"
+  PageIterMode="Full">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.views.ManagersVO_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <EntityUsage
+    Name="EmpImportDetailEO"
+    Entity="model.entities.EmpImportDetailEO"/>
+  <ViewAttribute
+    Name="EmployeeId"
+    IsUpdateable="while_insert"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="EmployeeId"
+    EntityUsage="EmpImportDetailEO"
+    AliasName="EMPLOYEE_ID"/>
+  <ViewAttribute
+    Name="LastName"
+    IsNotNull="true"
+    PrecisionRule="true"
+    EntityAttrName="LastName"
+    EntityUsage="EmpImportDetailEO"
+    AliasName="LAST_NAME"/>
+  <ViewAttribute
+    Name="MonthlySalary"
+    PrecisionRule="true"
+    EntityAttrName="MonthlySalary"
+    EntityUsage="EmpImportDetailEO"
+    AliasName="SALARY"/>
+  <ViewLinkAccessor
+    Name="Employees"
+    ViewLink="model.links.EmpManager2VL"
+    Type="oracle.jbo.RowIterator"
+    IsUpdateable="false"/>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewObject>

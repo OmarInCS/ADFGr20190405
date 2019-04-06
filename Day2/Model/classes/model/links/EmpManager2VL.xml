@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmpManager2VL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge"
+  EntityAssociation="model.assoc.EmpManagerFk1AS">
+  <Properties>
+    <SchemaBasedProperties>
+      <LABEL
+        ResId="model.links.EmpManager2VL_LABEL"/>
+    </SchemaBasedProperties>
+  </Properties>
+  <ViewLinkDefEnd
+    Name="Managers"
+    Cardinality="1"
+    Source="true"
+    Owner="model.views.ManagersVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="Managers"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.views.ManagersVO.EmployeeId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="Employees"
+    Cardinality="-1"
+    Owner="model.views.EmployeesVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="Employees"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.views.EmployeesVO.ManagerId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ResourceBundle>
+    <PropertiesBundle
+      PropertiesFile="model.ModelBundle"/>
+  </ResourceBundle>
+</ViewLink>
