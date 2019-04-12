@@ -1,0 +1,105 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="MgrSuperEmpPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="EmpDetails2" RangeSize="25" DataControl="TestAMDataControl" id="EmpDetails2Iterator"/>
+    <iterator Binds="EmpDetails3" RangeSize="25" DataControl="TestAMDataControl" id="EmpDetails3Iterator"/>
+    <iterator Binds="EmpDetails4" RangeSize="25" DataControl="TestAMDataControl" id="EmpDetails4Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="EmpDetails2Iterator" id="EmployeeId">
+      <AttrNames>
+        <Item Value="EmployeeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpDetails2Iterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpDetails2Iterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpDetails2Iterator" id="DepartmentId1">
+      <AttrNames>
+        <Item Value="DepartmentId1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpDetails2Iterator" id="DepartmentName">
+      <AttrNames>
+        <Item Value="DepartmentName"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="EmpDetails2Iterator" id="First" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="EmpDetails2Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="EmpDetails2Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="EmpDetails2Iterator" id="Last" RequiresUpdateModel="true" Action="last"/>
+    <attributeValues IterBinding="EmpDetails3Iterator" id="EmployeeId1">
+      <AttrNames>
+        <Item Value="EmployeeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpDetails3Iterator" id="FirstName1">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpDetails3Iterator" id="LastName1">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpDetails3Iterator" id="DepartmentId11">
+      <AttrNames>
+        <Item Value="DepartmentId1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpDetails3Iterator" id="DepartmentName1">
+      <AttrNames>
+        <Item Value="DepartmentName"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="EmpDetails3Iterator" id="First1" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="EmpDetails3Iterator" id="Previous1" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="EmpDetails3Iterator" id="Next1" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="EmpDetails3Iterator" id="Last1" RequiresUpdateModel="true" Action="last"/>
+    <attributeValues IterBinding="EmpDetails4Iterator" id="EmployeeId2">
+      <AttrNames>
+        <Item Value="EmployeeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpDetails4Iterator" id="FirstName2">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpDetails4Iterator" id="LastName2">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpDetails4Iterator" id="DepartmentId12">
+      <AttrNames>
+        <Item Value="DepartmentId1"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpDetails4Iterator" id="DepartmentName2">
+      <AttrNames>
+        <Item Value="DepartmentName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="EmpDetails4Iterator" id="ManagerId">
+      <AttrNames>
+        <Item Value="ManagerId"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="EmpDetails4Iterator" id="First2" RequiresUpdateModel="true" Action="first"/>
+    <action IterBinding="EmpDetails4Iterator" id="Previous2" RequiresUpdateModel="true" Action="previous"/>
+    <action IterBinding="EmpDetails4Iterator" id="Next2" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="EmpDetails4Iterator" id="Last2" RequiresUpdateModel="true" Action="last"/>
+  </bindings>
+</pageDefinition>

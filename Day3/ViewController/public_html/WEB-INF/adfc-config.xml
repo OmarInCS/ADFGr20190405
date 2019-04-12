@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <view id="Emps">
+    <page>/Emps.jsf</page>
+  </view>
+  <task-flow-call id="myTF">
+    <task-flow-reference>
+      <document>/WEB-INF/myTF.xml</document>
+      <id>myTF</id>
+    </task-flow-reference>
+  </task-flow-call>
+  <control-flow-rule id="__5">
+    <from-activity-id>Emps</from-activity-id>
+    <control-flow-case id="__6">
+      <from-outcome>toMyTF</from-outcome>
+      <to-activity-id>myTF</to-activity-id>
+    </control-flow-case>
+  </control-flow-rule>
+</adfc-config>

@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="myTF">
+    <default-activity>Depts</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <view id="Depts">
+      <page>/Depts.jsf</page>
+    </view>
+    <view id="Job">
+      <page>/Job.jsf</page>
+    </view>
+    <task-flow-return id="taskFlowReturn1">
+      <outcome>
+        <name>taskFlowReturn1</name>
+      </outcome>
+    </task-flow-return>
+    <control-flow-rule id="__3">
+      <from-activity-id>Depts</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>toJob</from-outcome>
+        <to-activity-id>Job</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__5">
+      <from-activity-id>Job</from-activity-id>
+      <control-flow-case id="__6">
+        <from-outcome>back</from-outcome>
+        <to-activity-id>taskFlowReturn1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+  </task-flow-definition>
+</adfc-config>

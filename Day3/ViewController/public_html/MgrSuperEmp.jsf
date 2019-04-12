@@ -1,0 +1,203 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="MgrSuperEmp.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="200px" id="gr3">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc3">
+                        <!-- Header -->
+                        <af:panelFormLayout id="pfl1">
+                            <af:inputText value="#{bindings.EmployeeId.inputValue}"
+                                          label="#{bindings.EmployeeId.hints.label}"
+                                          required="#{bindings.EmployeeId.hints.mandatory}"
+                                          columns="#{bindings.EmployeeId.hints.displayWidth}"
+                                          maximumLength="#{bindings.EmployeeId.hints.precision}"
+                                          shortDesc="#{bindings.EmployeeId.hints.tooltip}" id="it1">
+                                <f:validator binding="#{bindings.EmployeeId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeeId.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.FirstName.inputValue}"
+                                          label="#{bindings.FirstName.hints.label}"
+                                          required="#{bindings.FirstName.hints.mandatory}"
+                                          columns="#{bindings.FirstName.hints.displayWidth}"
+                                          maximumLength="#{bindings.FirstName.hints.precision}"
+                                          shortDesc="#{bindings.FirstName.hints.tooltip}" id="it2">
+                                <f:validator binding="#{bindings.FirstName.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.LastName.inputValue}"
+                                          label="#{bindings.LastName.hints.label}"
+                                          required="#{bindings.LastName.hints.mandatory}"
+                                          columns="#{bindings.LastName.hints.displayWidth}"
+                                          maximumLength="#{bindings.LastName.hints.precision}"
+                                          shortDesc="#{bindings.LastName.hints.tooltip}" id="it3">
+                                <f:validator binding="#{bindings.LastName.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.DepartmentId1.inputValue}"
+                                          label="#{bindings.DepartmentId1.hints.label}"
+                                          required="#{bindings.DepartmentId1.hints.mandatory}"
+                                          columns="#{bindings.DepartmentId1.hints.displayWidth}"
+                                          maximumLength="#{bindings.DepartmentId1.hints.precision}"
+                                          shortDesc="#{bindings.DepartmentId1.hints.tooltip}" id="it4">
+                                <f:validator binding="#{bindings.DepartmentId1.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentId1.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.DepartmentName.inputValue}"
+                                          label="#{bindings.DepartmentName.hints.label}"
+                                          required="#{bindings.DepartmentName.hints.mandatory}"
+                                          columns="#{bindings.DepartmentName.hints.displayWidth}"
+                                          maximumLength="#{bindings.DepartmentName.hints.precision}"
+                                          shortDesc="#{bindings.DepartmentName.hints.tooltip}" id="it5">
+                                <f:validator binding="#{bindings.DepartmentName.validator}"/>
+                            </af:inputText>
+                            <f:facet name="footer">
+                                <af:panelGroupLayout layout="horizontal" id="pgl2">
+                                    <af:button actionListener="#{bindings.First.execute}" text="First"
+                                               disabled="#{!bindings.First.enabled}" partialSubmit="true" id="b1"/>
+                                    <af:button actionListener="#{bindings.Previous.execute}" text="Previous"
+                                               disabled="#{!bindings.Previous.enabled}" partialSubmit="true" id="b2"/>
+                                    <af:button actionListener="#{bindings.Next.execute}" text="Next"
+                                               disabled="#{!bindings.Next.enabled}" partialSubmit="true" id="b3"/>
+                                    <af:button actionListener="#{bindings.Last.execute}" text="Last"
+                                               disabled="#{!bindings.Last.enabled}" partialSubmit="true" id="b4"/>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                        </af:panelFormLayout>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="400px" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Content -->
+                        <af:panelFormLayout id="pfl2">
+                            <af:inputText value="#{bindings.EmployeeId1.inputValue}"
+                                          label="#{bindings.EmployeeId1.hints.label}"
+                                          required="#{bindings.EmployeeId1.hints.mandatory}"
+                                          columns="#{bindings.EmployeeId1.hints.displayWidth}"
+                                          maximumLength="#{bindings.EmployeeId1.hints.precision}"
+                                          shortDesc="#{bindings.EmployeeId1.hints.tooltip}" id="it6">
+                                <f:validator binding="#{bindings.EmployeeId1.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeeId1.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.FirstName1.inputValue}"
+                                          label="#{bindings.FirstName1.hints.label}"
+                                          required="#{bindings.FirstName1.hints.mandatory}"
+                                          columns="#{bindings.FirstName1.hints.displayWidth}"
+                                          maximumLength="#{bindings.FirstName1.hints.precision}"
+                                          shortDesc="#{bindings.FirstName1.hints.tooltip}" id="it7">
+                                <f:validator binding="#{bindings.FirstName1.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.LastName1.inputValue}"
+                                          label="#{bindings.LastName1.hints.label}"
+                                          required="#{bindings.LastName1.hints.mandatory}"
+                                          columns="#{bindings.LastName1.hints.displayWidth}"
+                                          maximumLength="#{bindings.LastName1.hints.precision}"
+                                          shortDesc="#{bindings.LastName1.hints.tooltip}" id="it8">
+                                <f:validator binding="#{bindings.LastName1.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.DepartmentId11.inputValue}"
+                                          label="#{bindings.DepartmentId11.hints.label}"
+                                          required="#{bindings.DepartmentId11.hints.mandatory}"
+                                          columns="#{bindings.DepartmentId11.hints.displayWidth}"
+                                          maximumLength="#{bindings.DepartmentId11.hints.precision}"
+                                          shortDesc="#{bindings.DepartmentId11.hints.tooltip}" id="it9">
+                                <f:validator binding="#{bindings.DepartmentId11.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentId11.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.DepartmentName1.inputValue}"
+                                          label="#{bindings.DepartmentName1.hints.label}"
+                                          required="#{bindings.DepartmentName1.hints.mandatory}"
+                                          columns="#{bindings.DepartmentName1.hints.displayWidth}"
+                                          maximumLength="#{bindings.DepartmentName1.hints.precision}"
+                                          shortDesc="#{bindings.DepartmentName1.hints.tooltip}" id="it10">
+                                <f:validator binding="#{bindings.DepartmentName1.validator}"/>
+                            </af:inputText>
+                            <f:facet name="footer">
+                                <af:panelGroupLayout layout="horizontal" id="pgl3">
+                                    <af:button actionListener="#{bindings.First1.execute}" text="First1"
+                                               disabled="#{!bindings.First1.enabled}" partialSubmit="true" id="b5"/>
+                                    <af:button actionListener="#{bindings.Previous1.execute}" text="Previous1"
+                                               disabled="#{!bindings.Previous1.enabled}" partialSubmit="true" id="b6"/>
+                                    <af:button actionListener="#{bindings.Next1.execute}" text="Next1"
+                                               disabled="#{!bindings.Next1.enabled}" partialSubmit="true" id="b7"/>
+                                    <af:button actionListener="#{bindings.Last1.execute}" text="Last1"
+                                               disabled="#{!bindings.Last1.enabled}" partialSubmit="true" id="b8"/>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                        </af:panelFormLayout>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Footer -->
+                        <af:panelFormLayout id="pfl3">
+                            <af:inputText value="#{bindings.EmployeeId2.inputValue}"
+                                          label="#{bindings.EmployeeId2.hints.label}"
+                                          required="#{bindings.EmployeeId2.hints.mandatory}"
+                                          columns="#{bindings.EmployeeId2.hints.displayWidth}"
+                                          maximumLength="#{bindings.EmployeeId2.hints.precision}"
+                                          shortDesc="#{bindings.EmployeeId2.hints.tooltip}" id="it11">
+                                <f:validator binding="#{bindings.EmployeeId2.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeeId2.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.FirstName2.inputValue}"
+                                          label="#{bindings.FirstName2.hints.label}"
+                                          required="#{bindings.FirstName2.hints.mandatory}"
+                                          columns="#{bindings.FirstName2.hints.displayWidth}"
+                                          maximumLength="#{bindings.FirstName2.hints.precision}"
+                                          shortDesc="#{bindings.FirstName2.hints.tooltip}" id="it12">
+                                <f:validator binding="#{bindings.FirstName2.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.LastName2.inputValue}"
+                                          label="#{bindings.LastName2.hints.label}"
+                                          required="#{bindings.LastName2.hints.mandatory}"
+                                          columns="#{bindings.LastName2.hints.displayWidth}"
+                                          maximumLength="#{bindings.LastName2.hints.precision}"
+                                          shortDesc="#{bindings.LastName2.hints.tooltip}" id="it13">
+                                <f:validator binding="#{bindings.LastName2.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.DepartmentId12.inputValue}"
+                                          label="#{bindings.DepartmentId12.hints.label}"
+                                          required="#{bindings.DepartmentId12.hints.mandatory}"
+                                          columns="#{bindings.DepartmentId12.hints.displayWidth}"
+                                          maximumLength="#{bindings.DepartmentId12.hints.precision}"
+                                          shortDesc="#{bindings.DepartmentId12.hints.tooltip}" id="it14">
+                                <f:validator binding="#{bindings.DepartmentId12.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.DepartmentId12.format}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.DepartmentName2.inputValue}"
+                                          label="#{bindings.DepartmentName2.hints.label}"
+                                          required="#{bindings.DepartmentName2.hints.mandatory}"
+                                          columns="#{bindings.DepartmentName2.hints.displayWidth}"
+                                          maximumLength="#{bindings.DepartmentName2.hints.precision}"
+                                          shortDesc="#{bindings.DepartmentName2.hints.tooltip}" id="it15">
+                                <f:validator binding="#{bindings.DepartmentName2.validator}"/>
+                            </af:inputText>
+                            <af:inputText value="#{bindings.ManagerId.inputValue}"
+                                          label="#{bindings.ManagerId.hints.label}"
+                                          required="#{bindings.ManagerId.hints.mandatory}"
+                                          columns="#{bindings.ManagerId.hints.displayWidth}"
+                                          maximumLength="#{bindings.ManagerId.hints.precision}"
+                                          shortDesc="#{bindings.ManagerId.hints.tooltip}" id="it16">
+                                <f:validator binding="#{bindings.ManagerId.validator}"/>
+                                <af:convertNumber groupingUsed="false" pattern="#{bindings.ManagerId.format}"/>
+                            </af:inputText>
+                            <f:facet name="footer">
+                                <af:panelGroupLayout layout="horizontal" id="pgl4">
+                                    <af:button actionListener="#{bindings.First2.execute}" text="First2"
+                                               disabled="#{!bindings.First2.enabled}" partialSubmit="true" id="b9"/>
+                                    <af:button actionListener="#{bindings.Previous2.execute}" text="Previous2"
+                                               disabled="#{!bindings.Previous2.enabled}" partialSubmit="true" id="b10"/>
+                                    <af:button actionListener="#{bindings.Next2.execute}" text="Next2"
+                                               disabled="#{!bindings.Next2.enabled}" partialSubmit="true" id="b11"/>
+                                    <af:button actionListener="#{bindings.Last2.execute}" text="Last2"
+                                               disabled="#{!bindings.Last2.enabled}" partialSubmit="true" id="b12"/>
+                                </af:panelGroupLayout>
+                            </f:facet>
+                        </af:panelFormLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>

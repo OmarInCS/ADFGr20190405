@@ -1,0 +1,72 @@
+<?xml version = '1.0' encoding = 'UTF-8'?>
+<SDM>
+   <OverallProperties
+      id="OverallProperties1"/>
+   <View
+      id="View2">
+      <property
+         name="activityId">Depts</property>
+      <property
+         name="page">/Depts.jsf</property>
+      <property
+         name="start">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Depts&lt;/b> (Default Activity)&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">356.79883</property>
+      <property
+         name="x">401.5</property>
+   </View>
+   <View
+      id="View5">
+      <property
+         name="activityId">Job</property>
+      <property
+         name="page">/Job.jsf</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>Job&lt;/b>&lt;/p>&lt;p>Activity Type:  View&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">500.79883</property>
+      <property
+         name="x">644.5</property>
+   </View>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase6"
+      from="View2"
+      to="View5">
+      <property
+         name="fromOutcome">toJob</property>
+      <property
+         name="sdm:polyPoints">R50,442.5,356.44824,603.5,500.44824,L50</property>
+   </ControlFlowCase>
+   <TaskFlowReturn
+      id="TaskFlowReturn7">
+      <property
+         name="activityId">taskFlowReturn1</property>
+      <property
+         name="finish">true</property>
+      <property
+         name="description">&lt;html>&lt;p>&lt;b>taskFlowReturn1&lt;/b>&lt;/p>&lt;p>Activity Type:  Task Flow Return&lt;/p>&lt;p>Outcome:  taskFlowReturn1&lt;/p></property>
+      <property
+         name="exceptionHandler">false</property>
+      <property
+         name="y">411.94824</property>
+      <property
+         name="x">883.0</property>
+   </TaskFlowReturn>
+   <ControlFlowCase
+      islink="true"
+      id="ControlFlowCase8"
+      from="View5"
+      to="TaskFlowReturn7">
+      <property
+         name="fromOutcome">back</property>
+      <property
+         name="sdm:polyPoints">R50,685.5,500.44824,842.0,411.59766,L50</property>
+   </ControlFlowCase>
+</SDM>

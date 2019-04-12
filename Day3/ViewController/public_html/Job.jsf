@@ -1,0 +1,70 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Job.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Header -->
+                        <af:button text="Employees" id="b1" action="back"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Content -->
+                        <af:table value="#{bindings.Jobs1.collectionModel}" var="row" rows="#{bindings.Jobs1.rangeSize}"
+                                  emptyText="#{bindings.Jobs1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0" fetchSize="#{bindings.Jobs1.rangeSize}" id="t1">
+                            <af:column headerText="#{bindings.Jobs1.hints.JobId.label}" id="c1">
+                                <af:inputText value="#{row.bindings.JobId.inputValue}"
+                                              label="#{bindings.Jobs1.hints.JobId.label}"
+                                              required="#{bindings.Jobs1.hints.JobId.mandatory}"
+                                              columns="#{bindings.Jobs1.hints.JobId.displayWidth}"
+                                              maximumLength="#{bindings.Jobs1.hints.JobId.precision}"
+                                              shortDesc="#{bindings.Jobs1.hints.JobId.tooltip}" id="it1">
+                                    <f:validator binding="#{row.bindings.JobId.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Jobs1.hints.JobTitle.label}" id="c2">
+                                <af:inputText value="#{row.bindings.JobTitle.inputValue}"
+                                              label="#{bindings.Jobs1.hints.JobTitle.label}"
+                                              required="#{bindings.Jobs1.hints.JobTitle.mandatory}"
+                                              columns="#{bindings.Jobs1.hints.JobTitle.displayWidth}"
+                                              maximumLength="#{bindings.Jobs1.hints.JobTitle.precision}"
+                                              shortDesc="#{bindings.Jobs1.hints.JobTitle.tooltip}" id="it2">
+                                    <f:validator binding="#{row.bindings.JobTitle.validator}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Jobs1.hints.MinSalary.label}" id="c3">
+                                <af:inputText value="#{row.bindings.MinSalary.inputValue}"
+                                              label="#{bindings.Jobs1.hints.MinSalary.label}"
+                                              required="#{bindings.Jobs1.hints.MinSalary.mandatory}"
+                                              columns="#{bindings.Jobs1.hints.MinSalary.displayWidth}"
+                                              maximumLength="#{bindings.Jobs1.hints.MinSalary.precision}"
+                                              shortDesc="#{bindings.Jobs1.hints.MinSalary.tooltip}" id="it3">
+                                    <f:validator binding="#{row.bindings.MinSalary.validator}"/>
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Jobs1.hints.MinSalary.format}"/>
+                                </af:inputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Jobs1.hints.MaxSalary.label}" id="c4">
+                                <af:inputText value="#{row.bindings.MaxSalary.inputValue}"
+                                              label="#{bindings.Jobs1.hints.MaxSalary.label}"
+                                              required="#{bindings.Jobs1.hints.MaxSalary.mandatory}"
+                                              columns="#{bindings.Jobs1.hints.MaxSalary.displayWidth}"
+                                              maximumLength="#{bindings.Jobs1.hints.MaxSalary.precision}"
+                                              shortDesc="#{bindings.Jobs1.hints.MaxSalary.tooltip}" id="it4">
+                                    <f:validator binding="#{row.bindings.MaxSalary.validator}"/>
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Jobs1.hints.MaxSalary.format}"/>
+                                </af:inputText>
+                            </af:column>
+                        </af:table>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>
