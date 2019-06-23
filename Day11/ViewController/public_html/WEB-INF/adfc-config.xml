@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <managed-bean id="__1">
+    <managed-bean-name>backing_Departments</managed-bean-name>
+    <managed-bean-class>view.backing.Departments</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+  </managed-bean>
+  <managed-bean id="__2">
+    <managed-bean-name>backing_EmpRaise</managed-bean-name>
+    <managed-bean-class>view.backing.EmpRaise</managed-bean-class>
+    <managed-bean-scope>backingBean</managed-bean-scope>
+    <!--oracle-jdev-comment:managed-bean-jsp-link:1EmpRaise.jsf-->
+  </managed-bean>
+</adfc-config>

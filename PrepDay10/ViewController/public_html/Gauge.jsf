@@ -1,0 +1,97 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+    <af:document title="Gauge.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Header -->
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Content -->
+                        <af:table value="#{bindings.Employees1.collectionModel}" var="row"
+                                  rows="#{bindings.Employees1.rangeSize}"
+                                  emptyText="#{bindings.Employees1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.Employees1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.Employees1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.Employees1.rangeSize}" id="t1">
+                            <af:column headerText="#{bindings.Employees1.hints.EmployeeId.label}" id="c1">
+                                <af:outputText value="#{row.EmployeeId}"
+                                               shortDesc="#{bindings.Employees1.hints.EmployeeId.tooltip}" id="ot1">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Employees1.hints.EmployeeId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees1.hints.FirstName.label}" id="c2">
+                                <af:outputText value="#{row.FirstName}"
+                                               shortDesc="#{bindings.Employees1.hints.FirstName.tooltip}" id="ot2"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees1.hints.LastName.label}" id="c3">
+                                <af:outputText value="#{row.LastName}"
+                                               shortDesc="#{bindings.Employees1.hints.LastName.tooltip}" id="ot3"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees1.hints.Email.label}" id="c4">
+                                <af:outputText value="#{row.Email}"
+                                               shortDesc="#{bindings.Employees1.hints.Email.tooltip}" id="ot4"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees1.hints.PhoneNumber.label}" id="c5">
+                                <af:outputText value="#{row.PhoneNumber}"
+                                               shortDesc="#{bindings.Employees1.hints.PhoneNumber.tooltip}" id="ot5"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees1.hints.HireDate.label}" id="c6">
+                                <af:outputText value="#{row.HireDate}"
+                                               shortDesc="#{bindings.Employees1.hints.HireDate.tooltip}" id="ot6">
+                                    <af:convertDateTime pattern="#{bindings.Employees1.hints.HireDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees1.hints.JobId.label}" id="c7">
+                                <af:outputText value="#{row.JobId}"
+                                               shortDesc="#{bindings.Employees1.hints.JobId.tooltip}" id="ot7"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees1.hints.CommissionPct.label}" id="c8">
+                                <af:outputText value="#{row.CommissionPct}"
+                                               shortDesc="#{bindings.Employees1.hints.CommissionPct.tooltip}" id="ot8">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Employees1.hints.CommissionPct.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees1.hints.ManagerId.label}" id="c9">
+                                <af:outputText value="#{row.ManagerId}"
+                                               shortDesc="#{bindings.Employees1.hints.ManagerId.tooltip}" id="ot9">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Employees1.hints.ManagerId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees1.hints.DepartmentId.label}" id="c10">
+                                <af:outputText value="#{row.DepartmentId}"
+                                               shortDesc="#{bindings.Employees1.hints.DepartmentId.tooltip}" id="ot10">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Employees1.hints.DepartmentId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column id="c11" headerText="Salary" align="center">
+                                <af:panelGroupLayout id="pgl2" halign="center">
+                                    <af:spacer width="10" height="10" id="s1"/>
+                                    <dvt:statusMeterGauge orientation="circular"
+                                                          inlineStyle="width:70px; height:70px; vertical-align:middle; alignment-adjust:central;"
+                                                          id="smg1" value="#{row.Salary}" indicatorSize="0.8">
+                                        <dvt:gaugeMetricLabel rendered="true" id="gml1"/>
+                                        <dvt:gaugeThreshold maximum="6000" id="gt4" color="#ff0000"/>
+                                        <dvt:gaugeThreshold maximum="12000" id="gt5" color="#ffff00"/>
+                                        <dvt:gaugeThreshold id="gt6" color="#008000"/>
+                                    </dvt:statusMeterGauge>
+                                </af:panelGroupLayout>
+                            </af:column>
+                        </af:table>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>

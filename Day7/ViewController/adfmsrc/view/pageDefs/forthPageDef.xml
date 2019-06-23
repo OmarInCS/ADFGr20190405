@@ -1,0 +1,36 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="forthPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Departments1" RangeSize="-1" DataControl="AppModuleAMDataControl" id="Departments1Iterator"/>
+    <iterator Binds="Employees3" RangeSize="-1" DataControl="AppModuleAMDataControl" id="Employees3Iterator"/>
+  </executables>
+  <bindings>
+    <tree IterBinding="Departments1Iterator" id="Departments1">
+      <nodeDefinition DefName="model.views.DepartmentsVO" Name="Departments10">
+        <AttrNames>
+          <Item Value="DepartmentId"/>
+          <Item Value="DepartmentName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="Employees3Iterator" id="Employees3" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="model.views.EmployeesVO" Name="Employees3">
+        <AttrNames>
+          <Item Value="Salary"/>
+          <Item Value="LastName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+    <tree IterBinding="Departments1Iterator" id="Departments11" ChangeEventPolicy="ppr">
+      <nodeDefinition DefName="model.views.DepartmentsVO" Name="Departments11">
+        <AttrNames>
+          <Item Value="TotalSalaries"/>
+          <Item Value="DepartmentName"/>
+        </AttrNames>
+      </nodeDefinition>
+    </tree>
+  </bindings>
+</pageDefinition>

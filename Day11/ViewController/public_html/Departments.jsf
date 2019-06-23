@@ -1,0 +1,65 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Departments.jsf" id="d1" binding="#{backingBeanScope.backing_Departments.d1}">
+        <af:messages id="m1"/>
+        <af:form id="f1" binding="#{backingBeanScope.backing_Departments.f1}">
+            <af:panelGridLayout id="pgl1" binding="#{backingBeanScope.backing_Departments.pgl1}">
+                <af:gridRow height="50px" id="gr2" binding="#{backingBeanScope.backing_Departments.gr2}">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2"
+                                 binding="#{backingBeanScope.backing_Departments.gc2}">
+                        <!-- Header -->
+                        <af:button actionListener="#{bindings.Delete.execute}" text="Delete"
+                                   disabled="#{!bindings.Delete.enabled}" id="b1"
+                                   binding="#{backingBeanScope.backing_Departments.b1}"/>
+                        <af:button actionListener="#{bindings.Commit.execute}" text="Commit"
+                                   disabled="#{!bindings.Commit.enabled}" id="b2"
+                                   binding="#{backingBeanScope.backing_Departments.b2}"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr1" binding="#{backingBeanScope.backing_Departments.gr1}">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1"
+                                 binding="#{backingBeanScope.backing_Departments.gc1}">
+                        <!-- Content -->
+                        <af:table value="#{bindings.Departments1.collectionModel}" var="row"
+                                  rows="#{bindings.Departments1.rangeSize}"
+                                  emptyText="#{bindings.Departments1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.Departments1.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.Departments1.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.Departments1.rangeSize}" id="t1"
+                                  binding="#{backingBeanScope.backing_Departments.t1}" partialTriggers="::b1">
+                            <af:column headerText="#{bindings.Departments1.hints.DepartmentId.label}" id="c1">
+                                <af:outputText value="#{row.DepartmentId}"
+                                               shortDesc="#{bindings.Departments1.hints.DepartmentId.tooltip}" id="ot1">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Departments1.hints.DepartmentId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Departments1.hints.DepartmentName.label}" id="c2">
+                                <af:outputText value="#{row.DepartmentName}"
+                                               shortDesc="#{bindings.Departments1.hints.DepartmentName.tooltip}"
+                                               id="ot2"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.Departments1.hints.ManagerId.label}" id="c3">
+                                <af:outputText value="#{row.ManagerId}"
+                                               shortDesc="#{bindings.Departments1.hints.ManagerId.tooltip}" id="ot3">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Departments1.hints.ManagerId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Departments1.hints.LocationId.label}" id="c4">
+                                <af:outputText value="#{row.LocationId}"
+                                               shortDesc="#{bindings.Departments1.hints.LocationId.tooltip}" id="ot4">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Departments1.hints.LocationId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_Departments-->
+</f:view>

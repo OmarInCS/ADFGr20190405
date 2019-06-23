@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-call id="DeptEmp-task-flow-definition">
+    <task-flow-reference>
+      <document>/WEB-INF/DeptEmp-task-flow-definition.xml</document>
+      <id>DeptEmp-task-flow-definition</id>
+    </task-flow-reference>
+  </task-flow-call>
+</adfc-config>

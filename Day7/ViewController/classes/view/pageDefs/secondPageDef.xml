@@ -1,0 +1,28 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<pageDefinition xmlns="http://xmlns.oracle.com/adfm/uimodel" version="12.1.3.10.47" id="secondPageDef"
+                Package="view.pageDefs">
+  <parameters/>
+  <executables>
+    <variableIterator id="variables"/>
+    <iterator Binds="Employees1" RangeSize="25" DataControl="AppModuleAMDataControl" id="Employees1Iterator"/>
+  </executables>
+  <bindings>
+    <attributeValues IterBinding="Employees1Iterator" id="EmployeeId">
+      <AttrNames>
+        <Item Value="EmployeeId"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Employees1Iterator" id="FirstName">
+      <AttrNames>
+        <Item Value="FirstName"/>
+      </AttrNames>
+    </attributeValues>
+    <attributeValues IterBinding="Employees1Iterator" id="LastName">
+      <AttrNames>
+        <Item Value="LastName"/>
+      </AttrNames>
+    </attributeValues>
+    <action IterBinding="Employees1Iterator" id="Next" RequiresUpdateModel="true" Action="next"/>
+    <action IterBinding="Employees1Iterator" id="Previous" RequiresUpdateModel="true" Action="previous"/>
+  </bindings>
+</pageDefinition>

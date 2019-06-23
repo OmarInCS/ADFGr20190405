@@ -1,0 +1,120 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="DeptRaise.jsf" id="d1" binding="#{backingBeanScope.backing_DeptRaise.d1}">
+        <af:messages id="m1" binding="#{backingBeanScope.backing_DeptRaise.m1}"/>
+        <af:form id="f1" binding="#{backingBeanScope.backing_DeptRaise.f1}">
+            <af:panelGridLayout id="pgl1" binding="#{backingBeanScope.backing_DeptRaise.pgl1}">
+                <af:gridRow height="150px" id="gr2" binding="#{backingBeanScope.backing_DeptRaise.gr2}">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2"
+                                 binding="#{backingBeanScope.backing_DeptRaise.gc2}">
+                        <!-- Header -->
+                        <af:panelGroupLayout id="pgl2" binding="#{backingBeanScope.backing_DeptRaise.pgl2}">
+                            <af:selectOneChoice id="nl1" autoSubmit="true" value="#{bindings.Departments1.inputValue}"
+                                                label="#{bindings.Departments1.label}"
+                                                binding="#{backingBeanScope.backing_DeptRaise.nl1}">
+                                <f:selectItems value="#{bindings.Departments1.items}" id="si1"
+                                               binding="#{backingBeanScope.backing_DeptRaise.si1}"/>
+                            </af:selectOneChoice>
+                            <af:panelHeader text="Details" partialTriggers="nl1" id="ph1"
+                                            binding="#{backingBeanScope.backing_DeptRaise.ph1}">
+                                <af:panelFormLayout id="pfl1" binding="#{backingBeanScope.backing_DeptRaise.pfl1}">
+                                    <af:inputText value="#{bindings.raise.inputValue}"
+                                                  label="#{bindings.raise.hints.label}"
+                                                  required="#{bindings.raise.hints.mandatory}"
+                                                  columns="#{bindings.raise.hints.displayWidth}"
+                                                  maximumLength="#{bindings.raise.hints.precision}"
+                                                  shortDesc="#{bindings.raise.hints.tooltip}" id="it1"
+                                                  binding="#{backingBeanScope.backing_DeptRaise.it1}">
+                                        <f:validator binding="#{bindings.raise.validator}"/>
+                                        <af:convertNumber groupingUsed="false" pattern="#{bindings.raise.format}"/>
+                                    </af:inputText>
+                                    <af:button actionListener="#{bindings.applyEmpRaise.execute}" text="Apply"
+                                               disabled="#{!bindings.applyEmpRaise.enabled}" id="b1"
+                                               binding="#{backingBeanScope.backing_DeptRaise.b1}"/>
+                                </af:panelFormLayout>
+                            </af:panelHeader>
+                        </af:panelGroupLayout>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr1" binding="#{backingBeanScope.backing_DeptRaise.gr1}">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1"
+                                 binding="#{backingBeanScope.backing_DeptRaise.gc1}">
+                        <!-- Content -->
+                        <af:table value="#{bindings.Employees3.collectionModel}" var="row"
+                                  rows="#{bindings.Employees3.rangeSize}"
+                                  emptyText="#{bindings.Employees3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.Employees3.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.Employees3.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.Employees3.rangeSize}" id="t1"
+                                  binding="#{backingBeanScope.backing_DeptRaise.t1}">
+                            <af:column headerText="#{bindings.Employees3.hints.EmployeeId.label}" id="c1">
+                                <af:outputText value="#{row.EmployeeId}"
+                                               shortDesc="#{bindings.Employees3.hints.EmployeeId.tooltip}" id="ot1">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Employees3.hints.EmployeeId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.FirstName.label}" id="c2">
+                                <af:outputText value="#{row.FirstName}"
+                                               shortDesc="#{bindings.Employees3.hints.FirstName.tooltip}" id="ot2"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.LastName.label}" id="c3">
+                                <af:outputText value="#{row.LastName}"
+                                               shortDesc="#{bindings.Employees3.hints.LastName.tooltip}" id="ot3"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.Email.label}" id="c4">
+                                <af:outputText value="#{row.Email}"
+                                               shortDesc="#{bindings.Employees3.hints.Email.tooltip}" id="ot4"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.PhoneNumber.label}" id="c5">
+                                <af:outputText value="#{row.PhoneNumber}"
+                                               shortDesc="#{bindings.Employees3.hints.PhoneNumber.tooltip}" id="ot5"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.HireDate.label}" id="c6">
+                                <af:outputText value="#{row.HireDate}"
+                                               shortDesc="#{bindings.Employees3.hints.HireDate.tooltip}" id="ot6">
+                                    <af:convertDateTime pattern="#{bindings.Employees3.hints.HireDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.JobId.label}" id="c7">
+                                <af:outputText value="#{row.JobId}"
+                                               shortDesc="#{bindings.Employees3.hints.JobId.tooltip}" id="ot7"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.Salary.label}" id="c8">
+                                <af:outputText value="#{row.Salary}"
+                                               shortDesc="#{bindings.Employees3.hints.Salary.tooltip}" id="ot8">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Employees3.hints.Salary.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.CommissionPct.label}" id="c9">
+                                <af:outputText value="#{row.CommissionPct}"
+                                               shortDesc="#{bindings.Employees3.hints.CommissionPct.tooltip}" id="ot9">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Employees3.hints.CommissionPct.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.ManagerId.label}" id="c10">
+                                <af:outputText value="#{row.ManagerId}"
+                                               shortDesc="#{bindings.Employees3.hints.ManagerId.tooltip}" id="ot10">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Employees3.hints.ManagerId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.DepartmentId.label}" id="c11">
+                                <af:outputText value="#{row.DepartmentId}"
+                                               shortDesc="#{bindings.Employees3.hints.DepartmentId.tooltip}" id="ot11">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Employees3.hints.DepartmentId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_DeptRaise-->
+</f:view>

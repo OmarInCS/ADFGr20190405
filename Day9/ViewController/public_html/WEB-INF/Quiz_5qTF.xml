@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="Quiz_5qTF">
+    <default-activity>Q_1</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__1">
+      <managed-bean-name>managedBean1</managed-bean-name>
+      <managed-bean-class>view.Question</managed-bean-class>
+      <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <view id="Q_1">
+      <page>/Q_1.jsff</page>
+      <train-stop>
+        <display-name>Q1</display-name>
+      </train-stop>
+    </view>
+    <view id="Q2">
+      <page>/Q2.jsff</page>
+      <train-stop>
+        <display-name>Q2</display-name>
+        <outcome>toQ2</outcome>
+        <sequential>false</sequential>
+      </train-stop>
+    </view>
+    <view id="Q3">
+      <page>/Q3.jsff</page>
+      <train-stop>
+        <outcome>toQ3</outcome>
+        <sequential>false</sequential>
+      </train-stop>
+    </view>
+    <view id="Q4">
+      <page>/Q4.jsff</page>
+      <train-stop/>
+    </view>
+    <view id="Q5">
+      <page>/Q5.jsff</page>
+      <train-stop/>
+    </view>
+    <view id="Result">
+      <page>/Result.jsff</page>
+      <train-stop/>
+    </view>
+    <method-call id="checkAnswer">
+      <method>#{sessionScope.managedBean1.checkAnswer}</method>
+      <outcome>
+        <fixed-outcome>checkAnswer</fixed-outcome>
+      </outcome>
+    </method-call>
+    <method-call id="checkAnswer2">
+      <method>#{sessionScope.managedBean1.checkAnswer}</method>
+      <outcome>
+        <fixed-outcome>checkAnswer</fixed-outcome>
+      </outcome>
+    </method-call>
+    <train/>
+    <control-flow-rule id="__2">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__3">
+        <from-outcome>toQ2</from-outcome>
+        <to-activity-id>checkAnswer</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__8">
+        <from-outcome>toQ3</from-outcome>
+        <to-activity-id>checkAnswer2</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__4">
+      <from-activity-id>checkAnswer</from-activity-id>
+      <control-flow-case id="__5">
+        <from-outcome>checkAnswer</from-outcome>
+        <to-activity-id>Q2</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__6">
+      <from-activity-id>checkAnswer2</from-activity-id>
+      <control-flow-case id="__7">
+        <from-outcome>checkAnswer</from-outcome>
+        <to-activity-id>Q3</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

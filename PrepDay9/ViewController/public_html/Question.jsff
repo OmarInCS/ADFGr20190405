@@ -1,0 +1,32 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1" binding="#{backingBeanScope.backing_Question.pgl1}">
+        <af:gridRow height="50px" id="gr2" binding="#{backingBeanScope.backing_Question.gr2}">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2"
+                         binding="#{backingBeanScope.backing_Question.gc2}">
+                <!-- Header -->
+                <af:outputText value="What's #{managed_Quiz.x} + #{managed_Quiz.y}" id="ot1" binding="#{backingBeanScope.backing_Question.ot1}"
+                               inlineStyle="font-size:xx-large; text-align:center;" styleClass="AFStretchWidth"
+                               noWrap="true"/>
+            </af:gridCell>
+        </af:gridRow>
+        <af:gridRow height="100%" id="gr1" binding="#{backingBeanScope.backing_Question.gr1}">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1"
+                         binding="#{backingBeanScope.backing_Question.gc1}">
+                <!-- Content -->
+                <af:panelGroupLayout id="pgl2" binding="#{backingBeanScope.backing_Question.pgl2}" layout="vertical"
+                                     halign="center">
+                    <af:inputText id="it1" binding="#{backingBeanScope.backing_Question.it1}"
+                                  contentStyle="font-size:xx-large;" value="#{managed_Quiz.ans}"/>
+                    <af:button text="Submit" id="b1" binding="#{backingBeanScope.backing_Question.b1}"
+                               inlineStyle="font-size:xx-large;" action="go"/>
+                    <f:facet name="separator">
+                        <af:spacer width="10" height="10" id="s1" binding="#{backingBeanScope.backing_Question.s1}"/>
+                    </f:facet>
+                </af:panelGroupLayout>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_Question-->
+</ui:composition>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<!DOCTYPE ViewLink SYSTEM "jbo_03_01.dtd">
+<!---->
+<ViewLink
+  xmlns="http://xmlns.oracle.com/bc4j"
+  Name="EmpJobFkVL"
+  Version="12.1.3.10.47"
+  InheritPersonalization="merge">
+  <ViewLinkDefEnd
+    Name="JobsRVO"
+    Cardinality="1"
+    Source="true"
+    Owner="model.views.ro.JobsRVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="JobsRVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+      <Attr Name="_minCardinality" Value="1"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.views.ro.JobsRVO.JobId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+  <ViewLinkDefEnd
+    Name="EmployeesRVO"
+    Cardinality="-1"
+    Owner="model.views.ro.EmployeesRVO">
+    <DesignTime>
+      <Attr Name="_finderName" Value="EmployeesRVO"/>
+      <Attr Name="_isUpdateable" Value="true"/>
+    </DesignTime>
+    <AttrArray Name="Attributes">
+      <Item Value="model.views.ro.EmployeesRVO.JobId"/>
+    </AttrArray>
+  </ViewLinkDefEnd>
+</ViewLink>

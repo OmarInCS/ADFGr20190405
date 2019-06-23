@@ -1,0 +1,39 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Welcome.jsf" id="d1" binding="#{backingBeanScope.backing_Welcome.d1}">
+        <af:form id="f1" binding="#{backingBeanScope.backing_Welcome.f1}">
+            <af:panelGridLayout id="pgl1" binding="#{backingBeanScope.backing_Welcome.pgl1}">
+                <af:gridRow height="50px" id="gr2" binding="#{backingBeanScope.backing_Welcome.gr2}">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2"
+                                 binding="#{backingBeanScope.backing_Welcome.gc2}">
+                        <!-- Header -->
+                        <af:outputText value="Welcome #{facesContext.externalContext.sessionMap[&quot;user&quot;]}" id="ot2" binding="#{backingBeanScope.backing_Welcome.ot2}"/>
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr1" binding="#{backingBeanScope.backing_Welcome.gr1}">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1"
+                                 binding="#{backingBeanScope.backing_Welcome.gc1}">
+                        <!-- Content -->
+                        <af:outputText value="Please click here to show the menu" id="ot1" binding="#{backingBeanScope.backing_Welcome.ot1}"
+                                       inlineStyle="font-size:xx-large;">
+                            <af:showPopupBehavior popupId="p1" triggerType="contextMenu"/>
+                        </af:outputText>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+            <af:popup childCreation="deferred" autoCancel="disabled" id="p1"
+                      binding="#{backingBeanScope.backing_Welcome.p1}">
+                <af:menu text="menu 1" id="m1" binding="#{backingBeanScope.backing_Welcome.m1}">
+                    <af:commandMenuItem text="Employees" id="cmi1"
+                                        binding="#{backingBeanScope.backing_Welcome.cmi1}"/>
+                    <af:commandMenuItem text="Departments" id="cmi2"
+                                        binding="#{backingBeanScope.backing_Welcome.cmi2}"/>
+                    <af:commandMenuItem text="Jobs" id="cmi3"
+                                        binding="#{backingBeanScope.backing_Welcome.cmi3}"/>
+                </af:menu>
+            </af:popup>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_Welcome-->
+</f:view>

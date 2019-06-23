@@ -1,0 +1,61 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+        xmlns:dvt="http://xmlns.oracle.com/dss/adf/faces">
+  <af:document title="forth.jsf" id="d1">
+    <af:messages id="m1"/>
+    <af:form id="f1">
+      <af:panelSplitter orientation="horizontal" splitterPosition="200" id="ps1">
+        <f:facet name="first">
+          <!-- Left -->
+          <af:listView value="#{bindings.Departments1.collectionModel}" var="item"
+                       emptyText="#{bindings.Departments1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                       fetchSize="#{bindings.Departments1.rangeSize}" id="lv1" selection="single"
+                       selectionListener="#{bindings.Departments1.treeModel.makeCurrent}">
+            <af:listItem id="li1">
+              <af:panelGridLayout id="pgl2">
+                <af:gridRow marginTop="0px" height="auto" marginBottom="0px" id="gr3">
+                  <af:gridCell marginStart="0px" width="20%" id="gc3">
+                    <af:outputFormatted value="#{item.bindings.DepartmentId.inputValue}" id="of1">
+                      <af:convertNumber groupingUsed="false"
+                                        pattern="#{bindings.Departments1.hints.DepartmentId.format}"/>
+                    </af:outputFormatted>
+                  </af:gridCell>
+                  <af:gridCell marginStart="0px" width="80%" marginEnd="0px" id="gc4">
+                    <af:outputFormatted value="#{item.bindings.DepartmentName.inputValue}" id="of2"/>
+                  </af:gridCell>
+                </af:gridRow>
+              </af:panelGridLayout>
+            </af:listItem>
+          </af:listView>
+        </f:facet>
+        <f:facet name="second">
+          <af:panelGridLayout id="pgl1">
+            <af:gridRow height="200px" id="gr1">
+              <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                <!-- Partial Header -->
+                <dvt:pieChart id="pieChart1" var="row" value="#{bindings.Departments11.collectionModel}">
+                  <dvt:chartLegend id="cl2"/>
+                  <dvt:pieDataItem id="di2" value="#{row.TotalSalaries}" label="#{row.DepartmentName}"/>
+                </dvt:pieChart>
+              </af:gridCell>
+            </af:gridRow>
+            <af:gridRow height="100%" id="gr2">
+              <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                <!-- Content -->
+                <dvt:barChart id="barChart1" var="row" value="#{bindings.Employees3.collectionModel}"
+                              partialTriggers="::lv1">
+                  <dvt:chartLegend id="cl1"/>
+                  <f:facet name="dataStamp">
+                    <dvt:chartDataItem id="di1" value="#{row.Salary}" group="#{row.LastName}"
+                                       series="#{bindings.Employees3.hints.Salary.label}"/>
+                  </f:facet>
+                </dvt:barChart>
+              </af:gridCell>
+            </af:gridRow>
+          </af:panelGridLayout>
+        </f:facet>
+      </af:panelSplitter>
+    </af:form>
+  </af:document>
+</f:view>

@@ -1,0 +1,40 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="Quiz.jsf" id="d1" binding="#{backingBeanScope.backing_Quiz.d1}">
+        <af:form id="f1" binding="#{backingBeanScope.backing_Quiz.f1}">
+            <af:panelGridLayout id="pgl1" binding="#{backingBeanScope.backing_Quiz.pgl1}">
+                <af:gridRow height="50px" id="gr2" binding="#{backingBeanScope.backing_Quiz.gr2}">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1"
+                                 binding="#{backingBeanScope.backing_Quiz.gc1}">
+                        <!-- Header -->
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr1" binding="#{backingBeanScope.backing_Quiz.gr1}">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2"
+                                 binding="#{backingBeanScope.backing_Quiz.gc2}">
+                        <!-- Content -->
+                        <af:panelGroupLayout id="pgl2" binding="#{backingBeanScope.backing_Quiz.pgl2}"
+                                             layout="vertical">
+                            <af:outputText value="What's #{backingBeanScope.backing_Quiz.x} + #{backingBeanScope.backing_Quiz.y} ?" id="ot1" binding="#{backingBeanScope.backing_Quiz.ot1}"
+                                           inlineStyle="font-size:xx-large;"/>
+                            <af:inputText label="Answer" id="it1" binding="#{backingBeanScope.backing_Quiz.it1}"
+                                          inlineStyle="font-size:xx-large;" contentStyle="font-size:xx-large;"
+                                          value="#{backingBeanScope.backing_Quiz.ans}"/>
+                            <af:button text="Check" id="b1" binding="#{backingBeanScope.backing_Quiz.b1}"
+                                       inlineStyle="font-size:xx-large;"
+                                       actionListener="#{backingBeanScope.backing_Quiz.checkAnswer}"/>
+                            <af:outputText value="#{backingBeanScope.backing_Quiz.msg}" id="ot2" binding="#{backingBeanScope.backing_Quiz.ot2}"
+                                           inlineStyle="font-size:xx-large;" partialTriggers="b1"/>
+                            <f:facet name="separator">
+                                <af:spacer width="10" height="10" id="s1"
+                                           binding="#{backingBeanScope.backing_Quiz.s1}"/>
+                            </f:facet>
+                        </af:panelGroupLayout>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+    <!--oracle-jdev-comment:auto-binding-backing-bean-name:backing_Quiz-->
+</f:view>

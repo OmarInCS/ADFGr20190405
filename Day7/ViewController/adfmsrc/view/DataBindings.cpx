@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adfm/dvt"
+             className="oracle.adfinternal.view.faces.dvt.model.binding.FacesBindingFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/first.jsf" usageId="view_firstPageDef"/>
+    <page path="/second.jsf" usageId="view_secondPageDef"/>
+    <page path="/third.jsf" usageId="view_thirdPageDef"/>
+    <page path="/forth.jsf" usageId="view_forthPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_firstPageDef" path="view.pageDefs.firstPageDef"/>
+    <page id="view_secondPageDef" path="view.pageDefs.secondPageDef"/>
+    <page id="view_thirdPageDef" path="view.pageDefs.thirdPageDef"/>
+    <page id="view_forthPageDef" path="view.pageDefs.forthPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleAMDataControl" Package="model.modules"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

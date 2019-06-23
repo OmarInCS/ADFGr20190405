@@ -1,0 +1,69 @@
+<?xml version="1.0" encoding="windows-1252" ?>
+<adfc-config xmlns="http://xmlns.oracle.com/adf/controller" version="1.2">
+  <task-flow-definition id="QuizTF">
+    <default-activity>Q1</default-activity>
+    <data-control-scope>
+      <shared/>
+    </data-control-scope>
+    <managed-bean id="__6">
+      <managed-bean-name>managedBean1</managed-bean-name>
+      <managed-bean-class>view.Question</managed-bean-class>
+      <managed-bean-scope>session</managed-bean-scope>
+    </managed-bean>
+    <view id="Q1">
+      <page>/Q1.jsff</page>
+    </view>
+    <router id="isCorrect">
+      <case id="__7">
+        <expression>#{managedBean1.ans == managedBean1.x+ managedBean1.y}</expression>
+        <outcome>yes</outcome>
+      </case>
+      <default-outcome>no</default-outcome>
+    </router>
+    <view id="correct">
+      <page>/correct.jsff</page>
+    </view>
+    <view id="wrong">
+      <page>/wrong.jsff</page>
+    </view>
+    <method-call id="getNewQuestion">
+      <method>#{sessionScope.managedBean1.getNewQuestion}</method>
+      <outcome>
+        <fixed-outcome>getNewQuestion</fixed-outcome>
+      </outcome>
+    </method-call>
+    <control-flow-rule id="__1">
+      <from-activity-id>Q1</from-activity-id>
+      <control-flow-case id="__2">
+        <from-outcome>go</from-outcome>
+        <to-activity-id>isCorrect</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__3">
+      <from-activity-id>isCorrect</from-activity-id>
+      <control-flow-case id="__4">
+        <from-outcome>yes</from-outcome>
+        <to-activity-id>correct</to-activity-id>
+      </control-flow-case>
+      <control-flow-case id="__5">
+        <from-outcome>no</from-outcome>
+        <to-activity-id>wrong</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__8">
+      <from-activity-id>*</from-activity-id>
+      <control-flow-case id="__9">
+        <from-outcome>newQuestion</from-outcome>
+        <to-activity-id>getNewQuestion</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <control-flow-rule id="__10">
+      <from-activity-id>getNewQuestion</from-activity-id>
+      <control-flow-case id="__11">
+        <from-outcome>getNewQuestion</from-outcome>
+        <to-activity-id>Q1</to-activity-id>
+      </control-flow-case>
+    </control-flow-rule>
+    <use-page-fragments/>
+  </task-flow-definition>
+</adfc-config>

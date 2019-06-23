@@ -1,0 +1,46 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="second.jsf" id="d1">
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Header -->
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Content -->
+                        <af:inputText label="#{bindings.EmployeeId.hints.label}" id="it1"
+                                      value="#{bindings.EmployeeId.inputValue}"
+                                      required="#{bindings.EmployeeId.hints.mandatory}"
+                                      columns="#{bindings.EmployeeId.hints.displayWidth}"
+                                      maximumLength="#{bindings.EmployeeId.hints.precision}">
+                            <f:validator binding="#{bindings.EmployeeId.validator}"/>
+                            <af:convertNumber groupingUsed="false" pattern="#{bindings.EmployeeId.format}"/>
+                        </af:inputText>
+                        <af:inputText label="#{bindings.FirstName.hints.label}" id="it2"
+                                      value="#{bindings.FirstName.inputValue}"
+                                      required="#{bindings.FirstName.hints.mandatory}"
+                                      columns="#{bindings.FirstName.hints.displayWidth}"
+                                      maximumLength="#{bindings.FirstName.hints.precision}">
+                            <f:validator binding="#{bindings.FirstName.validator}"/>
+                        </af:inputText>
+                        <af:inputText label="#{bindings.LastName.hints.label}" id="it3"
+                                      value="#{bindings.LastName.inputValue}"
+                                      required="#{bindings.LastName.hints.mandatory}"
+                                      columns="#{bindings.LastName.hints.displayWidth}"
+                                      maximumLength="#{bindings.LastName.hints.precision}">
+                            <f:validator binding="#{bindings.LastName.validator}"/>
+                        </af:inputText>
+                        <af:button text="Previous" id="b1" actionListener="#{bindings.Previous.execute}"
+                                   disabled="#{!bindings.Previous.enabled}" partialSubmit="true"/>
+                        <af:button text="Next" id="b2" actionListener="#{bindings.Next.execute}"
+                                   disabled="#{!bindings.Next.enabled}" partialSubmit="true"/>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>

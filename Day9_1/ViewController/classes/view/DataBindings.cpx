@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<Application xmlns="http://xmlns.oracle.com/adfm/application" version="12.1.3.10.47" id="DataBindings"
+             SeparateXMLFiles="false" Package="view" ClientType="Generic">
+  <definitionFactories>
+    <factory nameSpace="http://xmlns.oracle.com/adf/controller/binding"
+             className="oracle.adf.controller.internal.binding.TaskFlowBindingDefFactoryImpl"/>
+    <dtfactory className="oracle.adf.controller.internal.dtrt.binding.BindingDTObjectFactory"/>
+  </definitionFactories>
+  <pageMap>
+    <page path="/HRSystem.jsf" usageId="view_HRSystemPageDef"/>
+    <page path="/jobSearch.jsff" usageId="view_jobSearchPageDef"/>
+    <page path="/jobEdit.jsff" usageId="view_jobEditPageDef"/>
+  </pageMap>
+  <pageDefinitionUsages>
+    <page id="view_HRSystemPageDef" path="view.pageDefs.HRSystemPageDef"/>
+    <page id="view_jobSearchPageDef" path="view.pageDefs.jobSearchPageDef"/>
+    <page id="view_jobEditPageDef" path="view.pageDefs.jobEditPageDef"/>
+  </pageDefinitionUsages>
+  <dataControlUsages>
+    <BC4JDataControl id="AppModuleAMDataControl" Package="model.modules"
+                     FactoryClass="oracle.adf.model.bc4j.DataControlFactoryImpl" SupportsTransactions="true"
+                     SupportsFindMode="true" SupportsRangesize="true" SupportsResetState="true"
+                     SupportsSortCollection="true" Configuration="AppModuleAMLocal" syncMode="Immediate"
+                     xmlns="http://xmlns.oracle.com/adfm/datacontrol"/>
+  </dataControlUsages>
+</Application>

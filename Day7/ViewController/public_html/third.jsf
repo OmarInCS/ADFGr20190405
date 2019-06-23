@@ -1,0 +1,90 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<!DOCTYPE html>
+<f:view xmlns:f="http://java.sun.com/jsf/core" xmlns:af="http://xmlns.oracle.com/adf/faces/rich">
+    <af:document title="third.jsf" id="d1">
+        <af:messages id="m1"/>
+        <af:form id="f1">
+            <af:panelGridLayout id="pgl1">
+                <af:gridRow height="50px" id="gr1">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc2">
+                        <!-- Header -->
+                    </af:gridCell>
+                </af:gridRow>
+                <af:gridRow height="100%" id="gr2">
+                    <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                        <!-- Content -->
+                        <af:table value="#{bindings.Employees3.collectionModel}" var="row"
+                                  rows="#{bindings.Employees3.rangeSize}"
+                                  emptyText="#{bindings.Employees3.viewable ? 'No data to display.' : 'Access Denied.'}"
+                                  rowBandingInterval="0"
+                                  selectedRowKeys="#{bindings.Employees3.collectionModel.selectedRow}"
+                                  selectionListener="#{bindings.Employees3.collectionModel.makeCurrent}"
+                                  rowSelection="single" fetchSize="#{bindings.Employees3.rangeSize}" id="t1">
+                            <af:column headerText="#{bindings.Employees3.hints.EmployeeId.label}" id="c6">
+                                <af:outputText value="#{row.EmployeeId}"
+                                               shortDesc="#{bindings.Employees3.hints.EmployeeId.tooltip}" id="ot8">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Employees3.hints.EmployeeId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.FirstName.label}" id="c9">
+                                <af:outputText value="#{row.FirstName}"
+                                               shortDesc="#{bindings.Employees3.hints.FirstName.tooltip}" id="ot9"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.LastName.label}" id="c7">
+                                <af:outputText value="#{row.LastName}"
+                                               shortDesc="#{bindings.Employees3.hints.LastName.tooltip}" id="ot2"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.Email.label}" id="c11">
+                                <af:outputText value="#{row.Email}"
+                                               shortDesc="#{bindings.Employees3.hints.Email.tooltip}" id="ot10"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.PhoneNumber.label}" id="c1">
+                                <af:outputText value="#{row.PhoneNumber}"
+                                               shortDesc="#{bindings.Employees3.hints.PhoneNumber.tooltip}" id="ot1"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.HireDate.label}" id="c3">
+                                <af:outputText value="#{row.HireDate}"
+                                               shortDesc="#{bindings.Employees3.hints.HireDate.tooltip}" id="ot5">
+                                    <af:convertDateTime pattern="#{bindings.Employees3.hints.HireDate.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.JobId.label}" id="c4">
+                                <af:outputText value="#{row.JobId}"
+                                               shortDesc="#{bindings.Employees3.hints.JobId.tooltip}" id="ot3"/>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.Salary.label}" id="c2">
+                                <af:outputText value="#{row.Salary}"
+                                               shortDesc="#{bindings.Employees3.hints.Salary.tooltip}" id="ot4">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Employees3.hints.Salary.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.CommissionPct.label}" id="c5">
+                                <af:outputText value="#{row.CommissionPct}"
+                                               shortDesc="#{bindings.Employees3.hints.CommissionPct.tooltip}" id="ot11">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Employees3.hints.CommissionPct.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.ManagerId.label}" id="c8">
+                                <af:outputText value="#{row.ManagerId}"
+                                               shortDesc="#{bindings.Employees3.hints.ManagerId.tooltip}" id="ot6">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Employees3.hints.ManagerId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                            <af:column headerText="#{bindings.Employees3.hints.DepartmentId.label}" id="c10">
+                                <af:outputText value="#{row.DepartmentId}"
+                                               shortDesc="#{bindings.Employees3.hints.DepartmentId.tooltip}" id="ot7">
+                                    <af:convertNumber groupingUsed="false"
+                                                      pattern="#{bindings.Employees3.hints.DepartmentId.format}"/>
+                                </af:outputText>
+                            </af:column>
+                        </af:table>
+                    </af:gridCell>
+                </af:gridRow>
+            </af:panelGridLayout>
+        </af:form>
+    </af:document>
+</f:view>

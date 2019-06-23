@@ -1,0 +1,58 @@
+<?xml version='1.0' encoding='UTF-8'?>
+<ui:composition xmlns:ui="http://java.sun.com/jsf/facelets" xmlns:af="http://xmlns.oracle.com/adf/faces/rich"
+                xmlns:f="http://java.sun.com/jsf/core">
+    <af:panelGridLayout id="pgl1">
+        <af:gridRow height="100%" id="gr1">
+            <af:gridCell width="100%" halign="stretch" valign="stretch" id="gc1">
+                <!-- Content -->
+                <af:panelGroupLayout layout="vertical" id="pgl2">
+                    <af:panelHeader text="JobsEO" id="ph1">
+                        <af:quickQuery label="Search" searchDesc="Search" id="qryId1"
+                                       value="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                                       model="#{bindings.ImplicitViewCriteriaQuery.queryModel}"
+                                       queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}">
+                            <f:facet name="end">
+                                <af:commandLink text="Advanced" rendered="false" id="cl1"/>
+                            </f:facet>
+                        </af:quickQuery>
+                    </af:panelHeader>
+                    <af:table value="#{bindings.Jobs1.collectionModel}" var="row" rows="#{bindings.Jobs1.rangeSize}"
+                              emptyText="#{bindings.Jobs1.viewable ? 'No data to display.' : 'Access Denied.'}"
+                              rowBandingInterval="0" selectedRowKeys="#{bindings.Jobs1.collectionModel.selectedRow}"
+                              selectionListener="#{bindings.Jobs1.collectionModel.makeCurrent}" rowSelection="single"
+                              fetchSize="#{bindings.Jobs1.rangeSize}"
+                              filterModel="#{bindings.ImplicitViewCriteriaQuery.quickQueryDescriptor}"
+                              queryListener="#{bindings.ImplicitViewCriteriaQuery.processQuery}" filterVisible="true"
+                              varStatus="vs" partialTriggers="::qryId1" id="t1">
+                        <af:column sortProperty="#{bindings.Jobs1.hints.JobId.name}" filterable="true" sortable="true"
+                                   headerText="#{bindings.Jobs1.hints.JobId.label}" id="c1">
+                            <af:link shortDesc="#{bindings.Jobs1.hints.JobId.tooltip}" id="ot1" text="Select"
+                                     action="toEdit"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.Jobs1.hints.JobTitle.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.Jobs1.hints.JobTitle.label}" id="c2">
+                            <af:outputText value="#{row.JobTitle}" shortDesc="#{bindings.Jobs1.hints.JobTitle.tooltip}"
+                                           id="ot2"/>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.Jobs1.hints.MinSalary.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.Jobs1.hints.MinSalary.label}" id="c3">
+                            <af:outputText value="#{row.MinSalary}"
+                                           shortDesc="#{bindings.Jobs1.hints.MinSalary.tooltip}" id="ot3">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.Jobs1.hints.MinSalary.format}"/>
+                            </af:outputText>
+                        </af:column>
+                        <af:column sortProperty="#{bindings.Jobs1.hints.MaxSalary.name}" filterable="true"
+                                   sortable="true" headerText="#{bindings.Jobs1.hints.MaxSalary.label}" id="c4">
+                            <af:outputText value="#{row.MaxSalary}"
+                                           shortDesc="#{bindings.Jobs1.hints.MaxSalary.tooltip}" id="ot4">
+                                <af:convertNumber groupingUsed="false"
+                                                  pattern="#{bindings.Jobs1.hints.MaxSalary.format}"/>
+                            </af:outputText>
+                        </af:column>
+                    </af:table>
+                </af:panelGroupLayout>
+            </af:gridCell>
+        </af:gridRow>
+    </af:panelGridLayout>
+</ui:composition>
